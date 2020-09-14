@@ -1,0 +1,91 @@
+{
+    "greetings": [
+        {
+            "tag": "greet",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "Hey there",
+                "Hello",
+                "Howdy",
+                "Anyone here"
+            ],
+            "responses": [
+                "Hey",
+                "Hi there",
+                "Hello",
+                "Hi",
+                "Hi there, how may I be of assistance?"
+            ]
+        },
+        {
+            "tag": "bye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Good bye",
+                "Exit",
+                "Quit"
+            ],
+            "responses": [
+                "Good bye",
+                "Have a nice day",
+                "Talk to you later"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Appreciate it"
+            ],
+            "responses": [
+                "Happy to help",
+                "Any time",
+                "My pleasure",
+                "You're welcome"
+            ]
+        },
+        {
+            "tag": "introduction",
+            "patterns": [
+                "who are you?",
+                "what are you?",
+                "who is this?"
+            ],
+            "responses": [
+                "My name is Fred, the chatbot",
+                "I am a newborn chatbot",
+                "I am here to answer your questions"
+            ]
+        },
+        {
+            "tag": "sorry",
+            "patterns": [
+                "You don't know anything",
+                "You are dumb",
+                "You are useless",
+                "That is not what I asked",
+                "That does not help"
+            ],
+            "responses": [
+                "I'm sorry, I am not fully trained to answer all of your questions",
+                "I apologize for not being helpful"
+            ]
+        },
+        {
+            "tag": "funny",
+            "patterns": [
+                "Make me laugh",
+                "Tell me a joke",
+                "Do you know any jokes?",
+                "Say something funny"
+            ],
+            "responses": [
+                "What country has the most progressive economy? Ireland, because everyday its DUBLIN!",
+                "What did the brother cell say to the sister cell when she stepped on his toe? Mi-TOE-sis!"
+            ]
+        }
+    ]
+}
