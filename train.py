@@ -95,16 +95,20 @@ dataset = ChatDataset()
 
 # create DataLoader
 train_loader = DataLoader(dataset = dataset, batch_size = batch_size, shuffle = True, num_workers = 0)
+# print("train_loader :")  
 print(train_loader) 
 
 # create model
 
 # check if GPU (cuda) is available, if its not, then simply use CPU
+# cuda is a computing platform that allows use of GPU (graphics processing unit)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') 
-model = NeuralNet(input_size, hidden_size, output_size).to(device) #push model to device
+model = NeuralNet(input_size, hidden_size, output_size).to(device) #push model to device; either GPU via cuda or your CPU
 
 # create loss and optimizer
 criterion = torch.nn.CrossEntropyLoss() #measures the amount of loss that is generated
+
+# use optimizer to alter attributes of your model to reduce loss (in this case, alter learning rate)
 optimizer = torch.optim.Adam(model.parameters(), lr = learning_rate)
 
 # training loop
@@ -120,19 +124,23 @@ for epoch in range(num_epochs):
 
         # pass backward and optimizer step
 
-        # first empty gradient
+        # first zero the gradient (tare it)
         optimizer.zero_grad()
         loss.backward()
+        # update parameter based on current gradient
         optimizer.step()
 
 
     if (epoch + 1) % 100 == 0:
+        # print each epoch number out of total number of epochs, print the loss function value to 4 decimal points
         print(f'epoch {epoch + 1}/{num_epochs}, loss={loss.item():.4f}')
 
+# print final loss value to 4 decimal points
 print(f'final loss, loss={loss.item():.4f}')
 
+# after the training is run, store all parameters in a dictionary
 data = {
-    "model_state": model.state_dict(),
+    "model_state": model.state_dict(), #state_dict() contains all the parameters of the model, so we can access any of the parameters, like hidden_size, or input_size, etc.
     "input_size": input_size,
     "output_size": output_size,
     "hidden_size": hidden_size,
@@ -140,6 +148,7 @@ data = {
     "tag": tags
 }
 
+# save dictionary in pth file 
 FILE = "data.pth"
 torch.save(data, FILE)
 
